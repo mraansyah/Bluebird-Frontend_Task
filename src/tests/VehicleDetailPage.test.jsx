@@ -35,7 +35,7 @@ const mockVehicle = {
   features: ["AC", "Power Steering", "ABS"],
 }
 
-// Create mock store
+
 const createMockStore = (initialState = {}) =>
   configureStore({
     reducer: { vehicle: vehicleReducer },

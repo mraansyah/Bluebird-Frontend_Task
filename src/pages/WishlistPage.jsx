@@ -7,7 +7,7 @@ import Footer from '../components/Footer'
 import LikeButton from '../components/LikeButton'
 import { Heart } from 'lucide-react'
 
-// Helper function untuk mendapatkan URL gambar berdasarkan nama kendaraan
+
 const getVehicleImage = (vehicleName) => {
   const lowerName = vehicleName.toLowerCase()
   
@@ -25,7 +25,7 @@ const getVehicleImage = (vehicleName) => {
     return 'https://www.bluebirdgroup.com/storage/armadaservicecars/67adbc9e7a40b.png'
   }
   
-  // Mengembalikan imageURL default jika bukan kendaraan khusus
+
   return null
 }
 

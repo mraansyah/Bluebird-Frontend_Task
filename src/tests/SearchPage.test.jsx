@@ -105,7 +105,7 @@ describe("SearchPage", () => {
   })
 
   it("displays all vehicles when no query filtering", async () => {
-    // Simulate empty query
+    
     mockLocation = { search: "" }
     const store = createStore()
     renderWithStore(store)
@@ -119,7 +119,7 @@ describe("SearchPage", () => {
   })
 
   it("renders vehicle images with correct alt and src", async () => {
-    mockLocation = { search: "" } // show all vehicles
+    mockLocation = { search: "" } 
     const store = createStore()
     renderWithStore(store)
 
@@ -133,7 +133,7 @@ describe("SearchPage", () => {
   })
 
   it("renders vehicle descriptions from array", async () => {
-    mockLocation = { search: "" } // show all vehicles
+    mockLocation = { search: "" } 
     const store = createStore()
     renderWithStore(store)
 

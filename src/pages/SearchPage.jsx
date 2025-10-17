@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 
 const API_URL = 'https://private-f2fbfb-ridecar2.apiary-mock.com/vehicles'
 
-// Helper function untuk mendapatkan URL gambar berdasarkan nama kendaraan
+
 const getVehicleImage = (vehicleName) => {
   const lowerName = vehicleName.toLowerCase()
   
@@ -23,7 +23,7 @@ const getVehicleImage = (vehicleName) => {
     return 'https://www.bluebirdgroup.com/storage/armadaservicecars/67adbc9e7a40b.png'
   }
   
-  // Mengembalikan imageURL default jika bukan kendaraan khusus
+  
   return null
 }
 
@@ -36,7 +36,7 @@ export default function SearchPage() {
   const [error, setError] = React.useState('')
 
   const handleDetailClick = (vehicleName) => {
-    // Mengubah nama kendaraan menjadi URL-friendly format
+    
     const urlFriendlyName = encodeURIComponent(vehicleName.toLowerCase().replace(/\s+/g, '-'))
     navigate(`/vehicle/${urlFriendlyName}`)
   }

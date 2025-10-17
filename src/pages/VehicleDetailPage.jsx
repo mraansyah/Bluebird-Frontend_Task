@@ -9,7 +9,7 @@ import ShareButton from '../components/ShareButton'
 import BookButton from '../components/BookButton'
 import { Star } from 'lucide-react'
 
-// Helper function untuk mendapatkan URL gambar berdasarkan nama kendaraan
+
 const getVehicleImage = (vehicleName) => {
   const lowerName = vehicleName.toLowerCase()
   
@@ -27,7 +27,6 @@ const getVehicleImage = (vehicleName) => {
     return 'https://www.bluebirdgroup.com/storage/armadaservicecars/67adbc9e7a40b.png'
   }
   
-  // Mengembalikan imageURL default jika bukan kendaraan khusus
   return null
 }
 
@@ -42,10 +41,10 @@ export default function VehicleDetailPage() {
 
   useEffect(() => {
     if (vehicles.length > 0) {
-      // Decode URL parameter dan cari kendaraan berdasarkan nama
+      
       const decodedVehicleName = decodeURIComponent(vehicleName).replace(/-/g, ' ')
       
-      // Cari kendaraan dengan nama yang cocok (case insensitive)
+      
       const foundVehicle = vehicles.find(v => 
         v.vehicle?.toLowerCase() === decodedVehicleName.toLowerCase()
       )
@@ -90,7 +89,7 @@ export default function VehicleDetailPage() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       
-      {/* Category Slider dibawah navbar */}
+      
       <div className="pt-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <CategorySlider />
@@ -101,7 +100,7 @@ export default function VehicleDetailPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
-          {/* Vehicle Images */}
+          
           <div className="space-y-4">
             <div className="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
               <img 
@@ -111,14 +110,14 @@ export default function VehicleDetailPage() {
               />
             </div>
             
-            {/* Tombol Like dan Share dibawah image */}
+            
             <div className="flex justify-center gap-4">
               <ShareButton />
               <LikeButton vehicle={vehicle} />
             </div>
           </div>
 
-          {/* Vehicle Details */}
+          
           <div className="space-y-6">
             {/* Header */}
             <div>
@@ -135,7 +134,7 @@ export default function VehicleDetailPage() {
               </div>
             </div>
 
-            {/* Description diatas harga */}
+            
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-lg font-semibold mb-4">Description</h3>
               <p className="text-gray-700 leading-relaxed">
@@ -145,7 +144,7 @@ export default function VehicleDetailPage() {
               </p>
             </div>
 
-            {/* Price dengan Book Button di kanan */}
+            
             <div className="bg-blue-50 p-6 rounded-lg">
               <div className="flex items-center justify-between">
                 <div>

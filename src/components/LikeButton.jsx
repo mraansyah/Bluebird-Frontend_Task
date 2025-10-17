@@ -6,18 +6,18 @@ export default function LikeButton({ vehicle, id }) {
   const dispatch = useDispatch()
   const wishlist = useSelector((state) => state.vehicle.wishlist)
   
-  // Pastikan kita memiliki object vehicle yang lengkap
+
   const vehicleObj = vehicle || { vehicle: id }
   const vehicleKey = vehicleObj.vehicle || id
   
   const isLiked = wishlist.some(item => item.vehicle === vehicleKey)
 
   const handleToggleLike = () => {
-    // Pastikan kita mengirim object vehicle yang lengkap
+    
     if (vehicle) {
       dispatch(toggleWishlist(vehicle))
     } else {
-      // Jika hanya ada id, buat object minimal
+      
       dispatch(toggleWishlist({ vehicle: id }))
     }
   }

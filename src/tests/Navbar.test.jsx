@@ -16,7 +16,7 @@ describe("Navbar", () => {
     
     expect(screen.getByText("Home")).toBeInTheDocument()
     expect(screen.getByText("Wishlist")).toBeInTheDocument()
-    expect(screen.getByText("MyBook")).toBeInTheDocument() // Perhatikan: MyBook tanpa spasi
+    expect(screen.getByText("MyBook")).toBeInTheDocument() 
   })
 
   it("renders logo/brand name", () => {
