@@ -1,0 +1,415 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Bluebird - Vehicle Rental</title>
+    <link rel="canonical" href="https://yourdomain.com/amp/">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style><noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+
+
+    <style amp-custom>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8fafc;
+        }
+
+        .header {
+            background: linear-gradient(to right, #2563eb, #1d4ed8);
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .main-content {
+            margin-top: 100px;
+            padding: 1rem;
+        }
+
+        .search-form {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .search-btn {
+            width: 100%;
+            margin-top: 0.5rem;
+            padding: 0.75rem;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .search-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .vehicle-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .vehicle-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin: 0.5rem 0;
+        }
+
+        .vehicle-price {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #059669;
+            margin: 0.5rem 0;
+        }
+
+        .vehicle-rating {
+            color: #6b7280;
+            margin: 0.5rem 0;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-secondary {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #dc2626;
+        }
+
+        .category-item {
+            display: inline-block;
+            text-align: center;
+            margin: 0.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            min-width: 120px;
+        }
+
+        .category-name {
+            font-weight: 600;
+            color: #374151;
+            margin-top: 0.5rem;
+        }
+
+        .lightbox-content {
+            background: white;
+            padding: 2rem;
+            margin: 2rem;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        .lightbox-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .close-btn {
+            padding: 0.5rem 1rem;
+            background: #6b7280;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background: #4b5563;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #6b7280;
+        }
+
+        .error {
+            background: #fef2f2;
+            color: #dc2626;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <amp-state id="appState">
+        <script type="application/json">
+      {
+        "vehicles": [],
+        "categories": [],
+        "selectedVehicle": null,
+        "wishlist": [],
+        "searchQuery": "",
+        "loading": false,
+        "error": null
+      }
+    </script>
+    </amp-state>
+
+
+    <header class="header">
+        <div class="container">
+            <h1 style="margin: 0; font-size: 1.75rem; font-weight: 800;">🚗 Bluebird</h1>
+            <nav style="margin-top: 0.5rem;">
+                <a href="/amp/"
+                    style="color: white; margin-right: 1.5rem; text-decoration: none; font-weight: 500;">Home</a>
+                <a href="/amp/search"
+                    style="color: white; margin-right: 1.5rem; text-decoration: none; font-weight: 500;">Search</a>
+                <a href="/amp/wishlist" style="color: white; text-decoration: none; font-weight: 500;">Wishlist</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="main-content">
+        <div class="container">
+
+            <amp-form action="/amp/search" method="get" class="search-form">
+                <input type="search" name="query" placeholder="🔍 Search vehicles..." class="search-input" required>
+                <input type="submit" value="Search Vehicles" class="search-btn">
+            </amp-form>
+
+
+            <section>
+                <h2 class="section-title">Vehicle Categories</h2>
+                <amp-list layout="fixed-height" height="200"
+                    src="https://private-f2fbfb-ridecar2.apiary-mock.com/vehicles" binding="no">
+                    <template type="amp-mustache">
+                        {{#category}}
+                        <div class="category-item">
+                            <amp-img src="{{imageURL}}" width="80" height="80" alt="{{name}}" layout="fixed"></amp-img>
+                            <p class="category-name">{{name}}</p>
+                        </div>
+                        {{/category}}
+                    </template>
+                    <div overflow class="loading">
+                        Loading categories...
+                    </div>
+                </amp-list>
+            </section>
+
+            <!-- Vehicle List -->
+            <section>
+                <h2 class="section-title">Available Vehicles</h2>
+                <amp-list layout="fixed-height" height="800"
+                    src="https://private-f2fbfb-ridecar2.apiary-mock.com/vehicles" binding="no">
+                    <template type="amp-mustache">
+                        {{#type}}
+                        {{#car_type}}
+                        <div class="vehicle-card">
+                            <amp-img src="{{imageURL}}" width="300" height="200" alt="{{vehicle}}"
+                                layout="responsive"></amp-img>
+                            <h3 class="vehicle-title">{{vehicle}}</h3>
+                            <p class="vehicle-price">{{price}}</p>
+                            <p class="vehicle-rating">{{rating}}/5 rating</p>
+                            <div class="btn-group">
+                                <button on="tap:vehicleDetail.open,AMP.setState({selectedVehicle: '{{vehicle}}'})"
+                                    class="btn btn-primary">
+                                    View Details
+                                </button>
+                                <button on="tap:AMP.setState({wishlist: toggleWishlist('{{vehicle}}')})"
+                                    class="btn btn-secondary">
+                                    Wishlist
+                                </button>
+                            </div>
+                        </div>
+                        {{/car_type}}
+                        {{/type}}
+                    </template>
+                    <div overflow class="loading">
+                        Loading vehicles...
+                    </div>
+                    <div fallback class="error">
+                        Failed to load vehicles. Please try again later.
+                    </div>
+                </amp-list>
+            </section>
+        </div>
+    </main>
+
+    <amp-lightbox id="vehicleDetail" layout="nodisplay">
+        <div class="lightbox-content">
+            <h2 class="lightbox-title">{{selectedVehicle}}</h2>
+            <p>Vehicle details and booking options will be shown here.</p>
+            <p>This is an AMP-compatible lightbox for displaying vehicle information.</p>
+            <button on="tap:vehicleDetail.close()" class="close-btn">
+                ✕ Close
+            </button>
+        </div>
+    </amp-lightbox>
+
+    <amp-bind-macro id="toggleWishlist" arguments="vehicleId" expression="wishlist.includes(vehicleId) ? 
+                    wishlist.filter(item => item !== vehicleId) : 
+                    wishlist.concat(vehicleId)">
+    </amp-bind-macro>
+
+    <amp-analytics type="googleanalytics">
+        <script type="application/json">
+      {
+        "vars": {
+          "account": "GA_TRACKING_ID"
+        },
+        "triggers": {
+          "trackPageview": {
+            "on": "visible",
+            "request": "pageview"
+          }
+        }
+      }
+    </script>
+    </amp-analytics>
+</body>
+
+</html>
